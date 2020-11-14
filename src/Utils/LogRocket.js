@@ -1,7 +1,7 @@
 import setupLogRocketReact from 'logrocket-react';
 import LogRocket from 'logrocket';
-
-export default function BuildLogRocket()
+import logging from "./logging"
+export default function BuildLogRocket(accountInfo)
 {
   LogRocket.init(process.env.REACT_APP_LOG_ROCKET,{
     network: {
@@ -32,5 +32,11 @@ export default function BuildLogRocket()
       },
     }})
     setupLogRocketReact(LogRocket)
-    
+    logging(accountInfo)
+    if (typeof window !== "undefined") {
+      LogRocket.identify(accountInfo.account.name, {
+        name: accountInfo.account.name,
+        email: accountInfo.account.userName,
+      })
+    }    
 }
