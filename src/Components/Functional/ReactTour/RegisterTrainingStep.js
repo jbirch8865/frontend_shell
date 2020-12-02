@@ -7,7 +7,7 @@ export default function RegisterTrainingStep(name)
       name
     })
     .then(function (response) {
-      GetUserCompletedTrainings()
+      //GetUserCompletedTrainings()
     })
     .catch(function (error) {
       logging(error,"error");

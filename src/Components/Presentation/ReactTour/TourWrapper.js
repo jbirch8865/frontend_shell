@@ -29,8 +29,8 @@ const TourWrapper = (props) => {
           }}
           lastStepNextButton={"I'm so over this"}
           onBeforeClose={() => {
-            props.completedTraining(
-              props.steps[currentStep].selector.replace(".", "")
+             props.completedTraining(
+               props.steps[currentStep].selector.replace(".", "")
             );
           }}
           disableDotsNavigation={true}

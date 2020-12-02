@@ -32,7 +32,7 @@ function UserAvatar(props) {
             onVisibleChange={() => {setPopoverVisible(!popoverVisible)}}
             placement="bottom"
           >
-            <TrainingStep title="Click your avatar to see your profile options" trainingName="avatar_avatar_react_tour_step"/>
+            {/* <TrainingStep title="Click your avatar to see your profile options" trainingName="avatar_avatar_react_tour_step"/> */}
             <Avatar
               className={
                 "avatar_avatar_react_tour_step " +  

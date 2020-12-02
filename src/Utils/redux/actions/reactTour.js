@@ -47,6 +47,7 @@ function setUserCompletedTrainings(completedtrainings) {
 
 export function GetUserCompletedTrainings() {
   return (dispatch) => {
+    if(true){return false}
     Planningapi.get("/reacttour/usercompletedtrainingsteps")
       .then(function (response) {
         dispatch(setUserCompletedTrainings(response.data.usercompletedtrainingsteps))
@@ -61,6 +62,7 @@ export function GetUserCompletedTrainings() {
 
 export function CompleteUserTraining(name) {
   return dispatch => {
+    if(true){return false}
     Planningapi.post("/reacttour/usercompletedtrainingsteps",{name}).then(function (response) {
     }).catch(function (error) {});
   }
