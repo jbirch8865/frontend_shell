@@ -27,18 +27,21 @@ function MessageThread(props) {
 
   const sendText = () => {
     setSendingMessage(true);
-    if (props.selectedRows.length !== 0) {
-      CDMapi.post("/sms", {
-        personnel: props.selectedRows,
+    let count = 0;
+      props.selectedRows.map(personnel => 
+      CDMapi.post("/employees/"+personnel+"/sms", {
         message: textMessage,
         from: props.textFromNumber,
       }).then(() => {
-        setMessageHistory([]);
-        smsMessages.current = [];
-        setTimeout(() => setCurrentPage(1), 100);
-        setSendingMessage(false);
-      });
-    }
+        if(++count === props.selectedRows.length)
+        {
+          setMessageHistory([]);
+          smsMessages.current = [];
+          setCurrentPage(0)
+          setTimeout(() => setCurrentPage(1), 100);
+          setSendingMessage(false);  
+        }
+      }))
   };
   const toggleReadText = (sid, dh_read) => {
     CDMapi.put("sms", { sid, dh_read }).then(() => {
@@ -170,9 +173,6 @@ function MessageThread(props) {
                               <br />
                             </p>
                             <p
-                              onClick={() =>
-                                toggleReadText(item.twilio_sid, !item.dh_read)
-                              }
                               className="smsMessageContent smsMessageSent"
                             >
                               {!logComment && (
@@ -216,8 +216,7 @@ function MessageThread(props) {
                       }}
                     />
                   )}
-                  {props.data.filter((person) => person.key === item)[0]
-                    .first_name +
+                  {typeof props.data.filter((person) => person.key === item)[0] !== "undefined" && props.data.filter((person) => person.key === item)[0].first_name +
                     " " +
                     props.data.filter((person) => person.key === item)[0]
                       .last_name}

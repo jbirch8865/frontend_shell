@@ -38,7 +38,9 @@ export default function Content(props) {
             </Dropdown>
           ),
           filters: filters(data),
-          onFilter: (value, record) => record.has_skills.filter(has_skill => has_skill.skill.Name === value).length > 0
+          onFilter: (value, record) => record.has_skills.filter(has_skill => has_skill.skill.Name === value).length > 0,
+          sorter: (a, b) => a.first_name.localeCompare(b.first_name),
+          sortDirections: ['ascend', 'descend', 'ascend'],
         },
       {
           name: "Phone",
