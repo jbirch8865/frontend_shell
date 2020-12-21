@@ -12,11 +12,13 @@ import { planningAuthProvider } from "./Utils/msauth";
 import 'antd/dist/antd.css'
 import { Provider } from 'react-redux'
 import configureStore from './Utils/redux/configureStore'
+import InitialLoad from './InitialLoad';
 export const store = configureStore()
 
 ReactDOM.render(
   <AzureAD provider={planningAuthProvider} forceLogin={true}>
       <Provider store={store}>
+        <InitialLoad />
         <ToastContainer />
         <TourWrapper />
         <Home />

@@ -1,0 +1,18 @@
+.fc {
+    background-color: white
+}
+
+.fc-day-today
+{
+  background-color:inherit !important;
+}
+
+.fc-bg-event
+{
+  opacity: var(--fc-bg-event-opacity, 1) !important;
+}
+
+.fc-daygrid-day-number
+{
+  cursor: default;
+}

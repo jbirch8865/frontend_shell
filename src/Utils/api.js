@@ -71,11 +71,21 @@ async function errorResponseHandler(error) {
 
 export const CDMapi = axios.create({
   baseURL: process.env.REACT_APP_CDM_URI + "/api",
-  timeout: 5000,
+  timeout: 15000,
 });
 export const Planningapi = axios.create({
   baseURL: process.env.REACT_APP_PLANNING_URI + "/api",
   timeout: 5000,
+});
+
+export const Dispatchapi = axios.create({
+  baseURL: process.env.REACT_APP_DISPATCH_URI + "/api",
+  timeout: 15000,
+});
+
+export const Bookingapi = axios.create({
+  baseURL: process.env.REACT_APP_DISPATCH_URI + "/api",
+  timeout: 15000,
 });
 
 CDMapi.interceptors.request.use(requestHandler);
@@ -83,3 +93,9 @@ CDMapi.interceptors.response.use(responseHandler, errorResponseHandler);
 
 Planningapi.interceptors.request.use(requestHandler);
 Planningapi.interceptors.response.use(responseHandler, errorResponseHandler);
+
+Dispatchapi.interceptors.request.use(requestHandler);
+Dispatchapi.interceptors.response.use(responseHandler, errorResponseHandler);
+
+Bookingapi.interceptors.request.use(requestHandler);
+Bookingapi.interceptors.response.use(responseHandler, errorResponseHandler);

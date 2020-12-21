@@ -8,6 +8,8 @@ import Content from "../Components/Presentation/Content/Content";
 const { Header, Footer } = Layout;
 export default function Home() {
   const [darkMode, setDarkMode] = useState(true);
+  const [collapse, setCollapse] = useState(true);
+
   return (
     <Layout>
       <Header style={{ height: "7vh" }}>
@@ -16,9 +18,9 @@ export default function Home() {
         </div>
       </Header>
       <Layout>
-        <LeftSider />
-        <Content />
-        <RightSider />
+        <LeftSider collapse={collapse} setCollapse={setCollapse}/>
+        <Content setCollapse={setCollapse}/>
+        <RightSider/>
       </Layout>
       <Footer style={{ height: "7vh" }}></Footer>
     </Layout>
