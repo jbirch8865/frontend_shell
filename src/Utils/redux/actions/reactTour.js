@@ -74,7 +74,12 @@ export function getRegisteredTrainings() {
 
 export function CompleteUserTraining(name) {
   return dispatch => {
+<<<<<<< HEAD
     Bookingapi.post("/reacttour/usercompletedtrainingsteps",{name}).then(function (response) {
+=======
+    if(true){return false}
+    Planningapi.post("/reacttour/usercompletedtrainingsteps",{name}).then(function (response) {
+>>>>>>> 02ba122234ef699c538763779b35bea108ea3c9a
     }).catch(function (error) {});
   }
 }

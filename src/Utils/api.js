@@ -77,6 +77,10 @@ export const Planningapi = axios.create({
   baseURL: process.env.REACT_APP_PLANNING_URI + "/api",
   timeout: 5000,
 });
+export const Dispatchapi = axios.create({
+  baseURL: process.env.REACT_APP_DISPATCH_URI + "/api",
+  timeout: 5000,
+});
 
 export const Dispatchapi = axios.create({
   baseURL: process.env.REACT_APP_DISPATCH_URI + "/api",
